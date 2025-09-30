@@ -41,7 +41,7 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-muted/30">
+    <section id="tecnologias" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-muted/30">
       <div className="container max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <div className="mx-auto max-w-[800px] text-center space-y-3 sm:space-y-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -53,31 +53,42 @@ export default function TechStack() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {technologies.map((tech) => (
             <div
               key={tech.category}
-              className="group relative overflow-hidden rounded-xl border bg-background p-5 sm:p-6 transition-all hover:shadow-lg hover:border-primary/50"
+              className="group relative overflow-hidden rounded-3xl border bg-gradient-to-br from-background to-muted/20 p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 hover:-translate-y-1"
             >
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2">
-                    <tech.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-base sm:text-lg">{tech.category}</h3>
+              {/* Background decoration */}
+              <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-xl transition-all duration-300 group-hover:scale-110" />
+              
+              {/* Icon */}
+              <div className="mb-6 flex justify-center">
+                <div className="inline-flex rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 p-4 transition-all duration-300 group-hover:scale-110">
+                  <tech.icon className="h-8 w-8 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground">{tech.description}</p>
-                <div className="flex flex-wrap gap-2">
+              </div>
+
+              {/* Content */}
+              <div className="space-y-4 text-center">
+                <h3 className="text-2xl font-bold leading-tight">{tech.category}</h3>
+                <p className="text-muted-foreground leading-relaxed">{tech.description}</p>
+                
+                {/* Tools */}
+                <div className="flex flex-wrap justify-center gap-2">
                   {tech.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="inline-flex items-center rounded-md bg-muted px-2.5 py-0.5 text-xs font-medium"
+                      className="inline-flex items-center rounded-full bg-gradient-to-r from-primary/10 to-accent/10 px-3 py-1.5 text-xs font-medium text-primary border border-primary/20 transition-all duration-300 hover:bg-primary hover:text-white"
                     >
                       {tool}
                     </span>
                   ))}
                 </div>
               </div>
+
+              {/* Hover effect line */}
+              <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
             </div>
           ))}
         </div>

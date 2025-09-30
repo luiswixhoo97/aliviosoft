@@ -5,6 +5,9 @@ import TechStack from "@/components/tech-stack"
 import Process from "@/components/process"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"
+import Services from "@/components/services"
+import Values from "@/components/values"
+import WhatsAppFloat from "@/components/whatsapp-float"
 
 export default function Home() {
   return (
@@ -16,11 +19,13 @@ export default function Home() {
 
       <Navbar />
       <Hero />
-      <Features />
-      <TechStack />
-      <Process />
+      <Services/>
+      <Values/>
       <CTA />
+      <Process />
+      <TechStack />
       <Footer />
+      <WhatsAppFloat />
     </div>
   )
 }

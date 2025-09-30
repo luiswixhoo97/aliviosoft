@@ -7,10 +7,15 @@ import MouseMoveEffect from "@/components/mouse-move-effect"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Streamline - Desarrollo de Software a tu Medida",
+  title: "AlvioSoft",
   description:
     "Transformamos tus ideas en soluciones digitales. Desarrollo, consultoría y capacitación tecnológica para emprendedores.",
-    generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: '/alviosoft-logo-icon.png',
+    shortcut: '/alviosoft-logo-icon.png',
+    apple: '/alviosoft-logo-icon.png',
+  },
 }
 
 export default function RootLayout({

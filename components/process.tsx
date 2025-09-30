@@ -33,7 +33,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="proceso" className="py-16 sm:py-20 md:py-24 lg:py-32">
       <div className="container max-w-screen-xl px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <div className="mx-auto max-w-[800px] text-center space-y-3 sm:space-y-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">Cómo Trabajamos</h2>
@@ -42,34 +42,39 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Connection line - hidden on mobile and small tablets */}
-          <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-border hidden lg:block" />
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 xl:grid-cols-4">
+          {steps.map((step, index) => (
+            <div
+              key={step.number}
+              className="group relative overflow-hidden rounded-3xl border bg-gradient-to-br from-background to-muted/20 p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 hover:-translate-y-1"
+            >
+              {/* Background decoration */}
+              <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-xl transition-all duration-300 group-hover:scale-110" />
+              
+              {/* Number badge */}
+              <div className="absolute -top-2 -right-2 h-16 w-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <span className="text-2xl font-bold text-white">{step.number}</span>
+              </div>
 
-          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className="relative grid gap-4 sm:gap-6 md:grid-cols-[auto_1fr] md:gap-8 lg:gap-12"
-              >
-                {/* Icon circle */}
-                <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border-4 border-background bg-primary shadow-lg shrink-0">
-                  <step.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" />
-                </div>
-
-                {/* Content */}
-                <div className="space-y-2 sm:space-y-3 pb-4 sm:pb-6 lg:pb-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                    <span className="text-3xl sm:text-4xl font-bold text-muted-foreground/30">{step.number}</span>
-                    <h3 className="text-xl sm:text-2xl font-bold">{step.title}</h3>
-                  </div>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[600px]">
-                    {step.description}
-                  </p>
+              {/* Icon */}
+              <div className="mb-6 flex justify-center">
+                <div className="inline-flex rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 p-4 transition-all duration-300 group-hover:scale-110">
+                  <step.icon className="h-8 w-8 text-primary" />
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Content */}
+              <div className="space-y-4 text-center">
+                <h3 className="text-2xl font-bold leading-tight">{step.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+
+              {/* Hover effect line */}
+              <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
